@@ -14,13 +14,13 @@ Ce rapport est à remettre **avant la prochaine séance**. Il constitue une **é
 
 ## 1. Introduction
 
-Dans ce TP, nous avons étudié un jeu de données publié sur data.gov.ma 
-contenant 21 établissements d'enseignement supérieur marocains. 
-Le dataset est au format CSV et contient des informations comme le nom, 
+Dans ce TP, nous avons étudié un jeu de données publié sur data.gov.ma
+contenant 21 établissements d'enseignement supérieur marocains.
+Le dataset est au format CSV et contient des informations comme le nom,
 la ville, le type et le domaine de chaque établissement.
-Les entités retenues pour le travail hors séance sont : 
+Les entités retenues pour le travail hors séance sont :
 Établissement, Ville et Pays.
-Le problème principal est l'absence d'identifiants stables et de liens 
+Le problème principal est l'absence d'identifiants stables et de liens
 vers des référentiels externes.
 
 ## 2. Types d'entités étudiés
@@ -37,25 +37,25 @@ Présentez :
 
 ## 3. Benchmark des référentiels externes
 
-- **Couverture** : Wikidata couvre les établissements connus 
-  mondialement mais pas tous les établissements marocains. 
+- **Couverture** : Wikidata couvre les établissements connus
+  mondialement mais pas tous les établissements marocains.
   GeoNames couvre toutes les villes du Maroc.
 
-- **Précision apparente** : Wikidata est le plus précis car il 
-  distingue université, école d'ingénieurs et faculté. 
+- **Précision apparente** : Wikidata est le plus précis car il
+  distingue université, école d'ingénieurs et faculté.
   GeoNames est précis uniquement pour la géographie.
 
-- **Qualité des identifiants** : Wikidata utilise des Q-identifiants 
-  stables (ex: Q3578202 pour ENSIAS, Q1028 pour Morocco). 
-  GeoNames utilise des codes numériques stables 
+- **Qualité des identifiants** : Wikidata utilise des Q-identifiants
+  stables (ex: Q3578202 pour ENSIAS, Q1028 pour Morocco).
+  GeoNames utilise des codes numériques stables
   (ex: 2553604 pour Casablanca).
 
-- **Richesse sémantique** : Wikidata est le plus riche avec logo, 
-  coordonnées, effectifs. GeoNames donne coordonnées GPS et 
+- **Richesse sémantique** : Wikidata est le plus riche avec logo,
+  coordonnées, effectifs. GeoNames donne coordonnées GPS et
   code pays.
 
-- **Facilité d'utilisation pour un futur alignement** : GeoNames 
-  est le plus facile car le nom de la ville suffit. Wikidata 
+- **Facilité d'utilisation pour un futur alignement** : GeoNames
+  est le plus facile car le nom de la ville suffit. Wikidata
   nécessite le nom complet de l'établissement.
 
 ## 4. Cas d'appariement manuel
@@ -103,51 +103,55 @@ Expliquez :
 
 ## 6. Analyse des risques
 
-- **Risques de faux appariement** : 
-  Le sigle ENSA existe pour plusieurs écoles dans différentes 
-  villes du Maroc, ce qui peut créer une confusion lors de 
+- **Risques de faux appariement** :
+  Le sigle ENSA existe pour plusieurs écoles dans différentes
+  villes du Maroc, ce qui peut créer une confusion lors de
   l'appariement avec Wikidata.
 
-- **Cas de désambiguïsation** : 
-  Le short_name "UAE" désigne à la fois Abdelmalek Essaadi 
-  University et les Émirats Arabes Unis. Il faut toujours 
+- **Cas de désambiguïsation** :
+  Le short_name "UAE" désigne à la fois Abdelmalek Essaadi
+  University et les Émirats Arabes Unis. Il faut toujours
   combiner avec le champ city pour désambiguïser.
 
-- **Limites des référentiels choisis** : 
-  Wikidata ne contient pas tous les établissements marocains, 
-  certaines petites écoles n'ont pas de page. DBpedia dépend 
+- **Limites des référentiels choisis** :
+  Wikidata ne contient pas tous les établissements marocains,
+  certaines petites écoles n'ont pas de page. DBpedia dépend
   de l'existence d'une page Wikipedia.
 
-- **Informations manquantes dans le dataset** : 
-  Absence de coordonnées GPS, pas de code officiel des 
-  établissements, pas de licence explicite, pas d'identifiant 
+- **Informations manquantes dans le dataset** :
+  Absence de coordonnées GPS, pas de code officiel des
+  établissements, pas de licence explicite, pas d'identifiant
   ISCED pour les domaines disciplinaires.
 
 ## 7. Difficultés rencontrées
 
-- **Absence ou faiblesse des identifiants** : 
-  Le champ record_id est un simple compteur séquentiel, 
-  il ne peut pas servir d'identifiant stable universel. 
+- **Absence ou faiblesse des identifiants** :
+  Le champ record_id est un simple compteur séquentiel,
+  il ne peut pas servir d'identifiant stable universel.
   Le short_name n'est pas toujours unique (ex: ENSA).
 
-- **Qualité insuffisante de certaines valeurs** : 
-  Les noms des établissements sont sans accents ce qui 
-  complique la recherche dans Wikidata et DBpedia. 
-  Les noms de villes ont des variantes orthographiques 
+- **Qualité insuffisante de certaines valeurs** :
+  Les noms des établissements sont sans accents ce qui
+  complique la recherche dans Wikidata et DBpedia.
+  Les noms de villes ont des variantes orthographiques
   (Marrakesh vs Marrakech).
 
-- **Limites de couverture des référentiels** : 
-  Certains établissements comme les petites écoles 
+- **Limites de couverture des référentiels** :
+  Certains établissements comme les petites écoles
   spécialisées n'ont pas de page dans Wikidata ni DBpedia.
 
-- **Difficultés de désambiguïsation** : 
-  Le sigle UAE peut désigner l'université marocaine ou 
-  les Émirats Arabes Unis. Sans contexte supplémentaire 
+- **Difficultés de désambiguïsation** :
+  Le sigle UAE peut désigner l'université marocaine ou
+  les Émirats Arabes Unis. Sans contexte supplémentaire
   comme la ville ou le pays, l'appariement devient risqué.
 
 ## 8. Conclusion
 
 Concluez sur la valeur de cette étude préparatoire et sur la manière dont elle facilite la séance suivante.
+
+Ce travail préparatoire hors séance a permis d'analyser en profondeur le jeu de données higher_education_sample.csv avant toute transformation en graphe de données. L'étude a révélé que le dataset atteint 3 étoiles sur 5 selon le modèle de Tim Berners-Lee : les données sont accessibles, structurées et dans un format ouvert, mais elles ne contiennent ni URI stables ni liens vers des données externes.
+Le benchmark des référentiels a montré que Wikidata est le plus adapté pour aligner les établissements et les universités parentes, grâce à ses Q-identifiants stables et sa richesse sémantique, tandis que GeoNames est le plus fiable pour normaliser et identifier les villes. Les 4 cas d'appariement réalisés manuellement ont confirmé que l'alignement est possible pour les établissements connus, mais risqué pour les sigles ambigus comme ENSA ou UAE sans information complémentaire de ville.
+Cette étude facilite directement le TP2 de plusieurs façons : les champs à nettoyer sont identifiés (institution_name, city, main_field), les règles de normalisation sont définies (UTF-8, ISCED-F, liste officielle des villes), et une stratégie de construction d'URI a été proposée (ma-[short_name]-[city]). Le TP2 pourra donc se concentrer sur la modélisation RDF sans avoir à redécouvrir ces problèmes techniques.
 
 ## Annexes éventuelles
 
@@ -156,3 +160,4 @@ Vous pouvez ajouter si nécessaire :
 - une capture du jeu de données source
 - un schéma conceptuel
 - un tableau complémentaire de liens externes
+  ![alt text](image.png)
